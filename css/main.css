@@ -16,7 +16,8 @@ main .title {
     margin: 0 0 20px;
     text-transform: uppercase; }
   main .title .divider {
-    position: relative; }
+    position: relative;
+    margin: 40px; }
     main .title .divider:before {
       content: "";
       width: 210px;
@@ -33,12 +34,11 @@ main .title {
       position: absolute;
       top: 36%;
       right: 32%; }
-  main .title .fa-fire {
+  main .title i {
     color: #ffcc00;
     font-size: 20px;
     position: relative;
-    display: block;
-    margin-bottom: 40px; }
+    display: block; }
 main .main-content {
   position: relative;
   display: grid;

@@ -61,6 +61,7 @@ main {
 		}
 		.divider {
 			position: relative;
+			margin: 40px;
 			&:before {
 				@include divider;
 				left: 32%;
@@ -70,12 +71,11 @@ main {
 				right: 32%;
 			}
 		}		
-		.fa-fire {
+		i {
 			color: $titleColor;
 			font-size: 20px;
 			position: relative;
 			display: block;
-			margin-bottom: 40px;
 		}
 	}
 	.main-content {
