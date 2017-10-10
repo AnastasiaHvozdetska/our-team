@@ -1,0 +1,267 @@
+$textColor: #898f8f;
+$titleColor: #ffcc00;
+$headingH2: 'Roboto', sans-serif;
+$headingColor: #666666;
+$linkColor: #cccccc;
+@mixin divider {
+	content: "";
+	width: 210px;
+	height: 1px;
+	background-color: $titleColor;
+	position: absolute;
+	top:36%;
+}
+
+@mixin dashed {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 10px;
+	height: 4px;
+	background-color: $titleColor;
+	top: 0;
+}
+@mixin sliderArrow {
+	position: absolute;
+	font-size: 35px;
+	color: $titleColor;
+	top: 45%;
+	line-height: 11px;
+	height: 20px;
+	width: 20px;
+	cursor: pointer;
+	@include flexcenter;
+}
+
+@mixin flexcenter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+main {
+	.title {
+		grid-column: 1 / 3;
+		text-align: center;
+		p {
+			font-size: 18px;
+			font-weight: 500;
+			color: $textColor;
+			text-transform: uppercase;
+		}
+		h1 {
+			font-size: 60px;
+			font-weight: 900;
+			color: $titleColor;
+			margin: 0 0 20px;
+			text-transform: uppercase;
+		}
+		.divider {
+			position: relative;
+			&:before {
+				@include divider;
+				left: 32%;
+			}
+			&:after {
+				@include divider;
+				right: 32%;
+			}
+		}		
+		.ion-bonfire {
+			color: $titleColor;
+			font-size: 20px;
+			position: relative;
+			display: block;
+			margin-bottom: 40px;
+		}
+	}
+	.main-content {
+		position: relative;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		&:before {
+			content: "<";
+			left: 3%;
+			@include sliderArrow;
+			&:hover {
+				color: black;
+			}
+		}
+		&:after {
+			content: ">";
+			right: 3%;
+			@include sliderArrow;
+		}
+		.left {
+			@include flexcenter;
+				.img-wrapper {
+				border: 1px solid $titleColor;
+				padding: 15px;
+				position: relative;
+				cursor: pointer;
+					&:hover:before {
+						border-top: 1px solid $titleColor;
+						border-bottom: 1px solid $titleColor;
+						z-index: 99;
+						transition: 1s;
+					}
+					&:hover:after {
+						border-left: 1px solid  $titleColor;
+						border-right: 1px solid $titleColor;
+						z-index: 100;
+						transition: 1s;
+					}
+					img {
+						border: 1px solid $titleColor;
+						height: 370px;
+					}
+				&:before {
+					content: '';
+					position: absolute;
+					width: 220px;
+					height: 406px;
+					top: -0.3%;
+					left: 23%;
+					border-bottom: 1px solid white;
+					border-top: 1px solid white;
+					transition: 0.6s;
+				}
+				&:after {
+					content: '';
+					position: absolute;
+					width: 402px;
+					height: 220px;
+					border-left: 1px solid white;
+					border-right: 1px solid white;
+					top: 23%;
+					left: -0.3%;
+					transition: 0.6s;
+				}
+			}
+		}
+		.right {
+			border-left: 1px solid $titleColor;
+			padding-right: 30px;
+			text-align: center;
+			flex-direction: column;
+			@include flexcenter;
+
+			h2 {
+				font-family:$headingH2;
+				font-weight: 900;
+				font-size: 36px;
+				color: $headingColor;
+				position: relative;
+				&:after {
+					content: "";
+					position: absolute;
+					width: 100px;
+					height: 1px;
+					background-color: $titleColor;
+					top: 56px;
+					left: 60px;
+				}
+			}
+			h3 {
+				color: $headingColor;
+				font-weight: 300;
+				font-size: 24px;
+				margin: 0;
+			}
+			.socials {
+				width: 25%;
+				@include flexcenter;
+				justify-content: space-around;
+				margin: 20px 0;
+				a {
+					color: $linkColor;
+					text-decoration: none;
+					width: 30px;
+					height: 30px;
+					border-radius: 50%;
+					border: 1px solid $linkColor;
+					@include flexcenter;
+					&:hover {
+						color: $titleColor;
+						border: 1px solid $titleColor;
+						background-color: lighten($linkColor,20%);
+					}
+				}
+			}
+			.description {
+				width: 500px;
+				text-align: center;
+				font-size: 14px;
+				line-height: 24px;
+				font-weight: 500;
+				color: #333333;
+			}
+		.dashed {
+			position: relative;
+			width: 20px;
+			height: 4px;
+			background-color: $titleColor;
+			margin: 25px 0;
+			&:before {
+				@include dashed;
+				right: 30px;
+			}
+			&:after {
+				@include dashed;
+				left: 30px;
+			}
+		}
+			.btn-profile {
+				width: 120px;
+				height: 25px;
+				font-family: 'Open Sans', sans-serif;
+				font-size: 14px;
+				font-weight: 700;
+				color: $headingColor;
+				border: 1px solid $titleColor;
+				background-color: #fff;
+				text-transform: uppercase;
+				outline: none;
+				&:hover {
+					background-color: $titleColor;
+					color: #fff;
+					border: none;
+				}
+			}
+		}
+	}
+	.dots {
+		grid-column: 1 / 3;
+		@include flexcenter;
+		.slider {
+			list-style: none;
+			display: inline-flex;
+			justify-content: space-between;
+			width: 5%;
+			padding: 0;
+			margin: 40px 0;
+			.slide {
+				width: 20px;
+				height: 20px;
+				@include flexcenter;
+				.slider-link {
+					width: 12px;
+					height: 12px;
+					background-color: $titleColor;
+					border-radius: 50%;
+					&:hover {
+						background-color: #fff;
+						border: 1px solid $titleColor;
+					}
+				}
+				.active {
+					background-color: #fff;
+					border: 1px solid $titleColor;
+				}
+			}
+		}
+	}
+}
